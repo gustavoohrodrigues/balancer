@@ -1,38 +1,74 @@
-Role Name
-=========
+# Ansible Role: Load Balancer
 
-A brief description of the role goes here.
+This role installs and configures a load balancer for distributing traffic across backend servers.
 
-Requirements
-------------
+---
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+## 📌 Overview
 
-Role Variables
---------------
+The **balancer** role automates deployment of a load balancing service used to distribute requests across multiple backend servers, improving scalability and availability.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+---
 
-Dependencies
-------------
+## 🚀 Features
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+* Load balancing configuration
+* Backend server management
+* Traffic distribution
+* Infrastructure automation ready
 
-Example Playbook
-----------------
+---
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+## 🧰 Requirements
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+* Ansible >= 2.9
+* Linux server
 
-License
--------
+---
 
-BSD
+## ⚙️ Role Variables
 
-Author Information
-------------------
+Example variables:
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+```yaml
+balancer_port: 80
+
+backend_servers:
+  - 192.168.1.10
+  - 192.168.1.11
+```
+
+---
+
+## ▶️ Example Playbook
+
+```yaml
+- hosts: load_balancers
+  become: true
+  roles:
+    - gustavoohrodrigues.balancer
+```
+
+---
+
+## 📦 Installation
+
+```bash
+ansible-galaxy install gustavoohrodrigues.balancer
+```
+
+---
+
+## Author
+
+**Gustavo Henrique Rodrigues**
+SysAdmin
+
+LinkedIn
+https://www.linkedin.com/in/gustavo-henrique-rodrigues-3070a5260
+
+---
+
+## 📜 License
+
+MIT
